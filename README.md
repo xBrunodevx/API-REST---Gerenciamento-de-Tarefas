@@ -11,7 +11,7 @@ Stack: Django 6, Django REST Framework, SimpleJWT, PostgreSQL (obrigatório), de
 ## 2) Configurar variaveis
 1. Copie `env.example` para `.env`
 2. Preencha: `SECRET_KEY`, `DB_NAME`, `DB_USER`, `DB_PASSWORD`, `DB_HOST`, `DB_PORT`, `ALLOWED_HOSTS`
-3. Para producao, use `.env.production` como base (DEBUG=False, HTTPS/HSTS ativados)
+3. Para producao, crie um `.env` (ou `.env.production` local) a partir do `env.example`, ajustando DEBUG=False e HTTPS/HSTS ativados
 
 ## 3) Instalar dependencias
 1. `python -m pip install -r requirements.txt`

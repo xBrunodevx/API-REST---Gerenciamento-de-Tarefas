@@ -11,7 +11,8 @@ Stack: Django 6, Django REST Framework, SimpleJWT, PostgreSQL (obrigatório), de
 ## 2) Configurar variaveis
 1. Copie `env.example` para `.env`
 2. Preencha: `SECRET_KEY`, `DB_NAME`, `DB_USER`, `DB_PASSWORD`, `DB_HOST`, `DB_PORT`, `ALLOWED_HOSTS`
-3. Para producao, crie um `.env` (ou `.env.production` local) a partir do `env.example`, ajustando DEBUG=False e HTTPS/HSTS ativados
+3. Para producao, crie um `.env` (ou `.env.production` local) a partir do `env.example`, ajustando DEBUG=False, ativando HTTPS/HSTS e preenchendo apenas nos ambientes de deploy
+4. Nunca comite credenciais reais; mantenha `.env*` fora do versionamento e entregue os valores sensíveis por canal seguro
 
 ## 3) Instalar dependencias
 1. `python -m pip install -r requirements.txt`
@@ -38,7 +39,7 @@ Stack: Django 6, Django REST Framework, SimpleJWT, PostgreSQL (obrigatório), de
 ## 9) Produção (ajuste antes de subir)
 1. `DEBUG=False`
 2. `ALLOWED_HOSTS` com dominio ou IP publico
-3. HTTPS ativo: `SECURE_SSL_REDIRECT=True`, `SESSION_COOKIE_SECURE=True`, `CSRF_COOKIE_SECURE=True`, `SECURE_HSTS_SECONDS>0`
+3. HTTPS ativo: `SECURE_SSL_REDIRECT=True`, `SESSION_COOKIE_SECURE=True`, `CSRF_COOKIE_SECURE=True`, `SECURE_HSTS_SECONDS>0` (HSTS inclui subdomínios/preload quando o tempo for maior que 0)
 4. Tokens JWT: access 1h, refresh 7d, rotacao com blacklist
 
 ## 10) Notas rapidas
